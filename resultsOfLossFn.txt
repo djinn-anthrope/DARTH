@@ -1,0 +1,55 @@
+USING JUST A SIMPLE SINGLE LAYER NN
+
+Training Loss fn:
+    loss = loss_function(outputs.squeeze(), batch_labels.squeeze())
+    
+    test loss, r2: 0.7623644622545394 -0.016132350005800763
+    
+    mae, mdae, mse, mape, mdape, r_squared
+    (0.357325091027148,
+     0.26473291506926167,
+     0.22037273121675371,
+     0.12759336488271242,
+     0.08754675675203535,
+     -0.9091004518241999)
+
+Training Loss fn: 
+    loss = loss_function(outputs.squeeze(), batch_labels.squeeze()) + loss_function(outputs.squeeze(), batch_pol.squeeze())
+
+    test loss, r2: 0.7615384336501833 0.04764625193580749
+
+    mae, mdae, mse, mape, mdape, r_squared
+    (0.3625723263263848,
+     0.2715390665041051,
+     0.2358287564301166,
+     0.12953992738381992,
+     0.08853839552528806,
+     -1.0429968034976507)
+     
+ Training Loss fn:
+     loss = loss_function(outputs.squeeze(), batch_labels.squeeze()) + math.pow((loss_function(outputs.squeeze(), batch_pol.squeeze())), -epoch)
+     
+     test loss, r2: 0.35762480599066565 0.518928313066089
+     
+     mae, mdae, mse, mape, mdape, r_squared
+     (0.34465094844360133,
+     0.2725625080288818,
+     0.21101533790873273,
+     0.12118783774915703,
+     0.09110281021378197,
+     -0.8280368660819657)
+     
+Training Loss fn:
+    l1 = loss_function(outputs.squeeze(), batch_labels.squeeze()) 
+    l2 = loss_function(outputs.squeeze(), batch_pol.squeeze())
+    loss = l1 * epoch + l2
+    
+    test loss, r2: 0.44530612679701004 0.42912963174638297
+    
+    mae, mdae, mse, mape, mdape, r_squared
+    (0.34978909429231003,
+     0.2563372594980573,
+     0.21487487712048925,
+     0.12427797479234971,
+     0.08550787398825012,
+     -0.8614722553532017)
